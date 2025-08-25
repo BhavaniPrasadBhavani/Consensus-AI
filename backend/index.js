@@ -18,7 +18,7 @@ app.use(express.json());
 // Serve React build static files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const buildPath = path.join(__dirname, "../ai-multi-model/build");
+const buildPath = path.join(__dirname, "build");
 app.use(express.static(buildPath));
 
 // Fallback for React Router
