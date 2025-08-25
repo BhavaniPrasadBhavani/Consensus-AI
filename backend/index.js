@@ -10,6 +10,11 @@ import { calculateConfidenceScores } from "./utils/scoring.js";
 
 dotenv.config();
 
+const app = express();
+const upload = multer({ dest: "uploads/" });
+app.use(cors());
+app.use(express.json());
+
 // Serve React build static files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,11 +26,6 @@ app.get("*", (req, res) => {
   if (req.path.startsWith("/api/")) return;
   res.sendFile(path.join(buildPath, "index.html"));
 });
-
-const app = express();
-const upload = multer({ dest: "uploads/" });
-app.use(cors());
-app.use(express.json());
 
 const MODELS = [
   { name: "DeepSeek", id: "deepseek/deepseek-r1-0528:free", weight: 0.9 },
