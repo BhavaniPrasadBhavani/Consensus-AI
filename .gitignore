@@ -1,10 +1,6 @@
 # Node modules
 node_modules/
 
-# Build output
-ai-multi-model/build/
-backend/build/
-
 # Environment files
 .env
 .env.local
